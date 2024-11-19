@@ -22,7 +22,13 @@ def main():
   
   chat_history = []
   ask_gpt(prompt, chat_history, SYSTEM_MESSAGE)
-
+  
+  user_input = input(">_: ")
+  while user_input != "":
+    ask_gpt(user_input, chat_history, SYSTEM_MESSAGE)
+    user_input = input(">_: ")
+    
+  print("Goodbye!")
 
 def ask_gpt(prompt: str, chat_history: list, system_message: str):
   user_prompt = {"role": "user", "content": prompt}
